@@ -12,20 +12,35 @@ namespace Demo_WinForms.SimpleCalculator
 {
     public enum MaterialName
     {
-        TopSoil,
+        Topsoil,
         Sand,
-        CrushedStone,
-        MediumFieldStone
+        Limestone,
+        Concrete,
+        Clowns
     }
 
     public partial class MainForm : Form
     {
 
         private Dictionary<MaterialName, double> _density = new Dictionary<MaterialName, double>();
+        private List<string> _materialNames = new List<string>();
 
         public MainForm()
         {
+            InitializeDensityTable();
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// initialize the density table, lbs/cubic foot
+        /// </summary>
+        private void InitializeDensityTable()
+        {
+            _density.Add(MaterialName.Topsoil, 100);
+            _density.Add(MaterialName.Sand, 101.8);
+            _density.Add(MaterialName.Limestone, 150);
+            _density.Add(MaterialName.Concrete, 145);
+            _density.Add(MaterialName.Clowns, 145);
         }
 
         private void Btn_Exit_Click(object sender, EventArgs e)
